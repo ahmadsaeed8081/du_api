@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 })); 
-const DB="mongodb+srv://<username>:<password>@cluster0.xkfehzq.mongodb.net/?retryWrites=true&w=majority";
+const DB ="mongodb+srv://<chohanahmad1>:<GSG4D7fv05Ud5689>@cluster0.xkfehzq.mongodb.net/?retryWrites=true&w=majority";
 // const DB1="mongodb://localhost:27017/myDB";
 
 // mongoose.connect("mongodb://localhost:27017/myDB")
