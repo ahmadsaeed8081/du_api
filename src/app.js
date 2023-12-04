@@ -129,7 +129,7 @@ app.listen(port, () => {
         console.log("connection is live"+ port);
 });
 
-InsertData();
+// InsertData();
 // getData();
 
 
