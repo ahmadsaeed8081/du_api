@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 })); 
-const DB ="mongodb+srv://<chohanahmad1>:<GSG4D7fv05Ud5689>@cluster0.xkfehzq.mongodb.net/?retryWrites=true&w=majority";
+const DB ="mongodb+srv://chohanahmad1:yDdnXCsBhW589yt7@cluster0.gmqtpc2.mongodb.net/duStake?retryWrites=true&w=majority";
 // const DB1="mongodb://localhost:27017/myDB";
 
 // mongoose.connect("mongodb://localhost:27017/myDB")
@@ -50,12 +50,12 @@ const collection = new mongoose.model("user",schema);
 
 const InsertData = async () =>{
 const data = new collection({
-    userAddress : "8988",
+    userAddress : "8988788787",
     FName : "ahmad",
     LName :"Saeed",
     Email :"ahmadchohan007@gmail.com",
     password :"ahmad@pass",
-    Country :"pakistan",
+    Country :"USA",
     Phone: "03234354339",
     Ref_address:"gkjbj96bmbuit7b"
 
@@ -129,7 +129,7 @@ app.listen(port, () => {
         console.log("connection is live"+ port);
 });
 
-// InsertData();
+InsertData();
 // getData();
 
 
