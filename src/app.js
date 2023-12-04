@@ -63,11 +63,11 @@ const data = new collection({
   await data.save();
 }
 
-// const getData = async () =>{
+const getData = async () =>{
 
-//     const result = await collection.find();
-//     console.log(result);
-// }
+    const result = await collection.find({Email : "ahmadchohan007@gmail.com"});
+    console.log(result);
+}
 
 
 app.get("/getdatabyaddress", async (req, res) => {
@@ -85,7 +85,7 @@ app.get("/getdatabymail", async (req, res) => {
     console.log("its working"+req.query.userAddress);
 
     // res.json({ userAddress: req.query.userAddress });
-    const result = await collection.find({userAddress : req.query.Email});
+    const result = await collection.find({Email : req.query.Email});
     // console.log(result);
 
     res.send(result);
@@ -130,7 +130,7 @@ app.listen(port, () => {
 });
 
 // InsertData();
-// getData();
+getData();
 
 
 
