@@ -110,6 +110,7 @@ app.post("/register", async (req, res) => {
             Phone : req.body.Phone,
             Ref_address : req.body.Ref_address,
             verified : req.body.verified,
+            Image : req.body.Image,
 
 
 
