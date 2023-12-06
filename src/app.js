@@ -33,6 +33,8 @@ const schema = new mongoose.Schema({
     Country :String,
     Phone: String,
     Ref_address:String,
+    verified:Boolean,
+    Image:String,
 
     date  :{
         type: Date,
@@ -65,7 +67,7 @@ const data = new collection({
 
 const getData = async () =>{
 
-    const result = await collection.find({Email : "ahmadchohan007@gmail.com"});
+    const result = await collection.find({Email : "ahmadsaeed339@gmail.com"});
     console.log(result);
 }
 
@@ -107,6 +109,9 @@ app.post("/register", async (req, res) => {
             Country : req.body.Country,
             Phone : req.body.Phone,
             Ref_address : req.body.Ref_address,
+            verified : req.body.verified,
+
+
 
 
         
@@ -117,6 +122,20 @@ app.post("/register", async (req, res) => {
     res.send("User is Registerd");
 
 })
+
+
+
+app.patch("/user/:id",async (req, res)=>{
+
+    const _id=req.params.id;
+
+    const updtaedata= await collection.findByIdAndUpdate(_id,req.body);
+
+    res.send("its done");
+
+})
+
+
 
 app.get("/get", async (req, res) => {
 
