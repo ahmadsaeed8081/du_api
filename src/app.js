@@ -14,9 +14,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 })); 
 const DB ="mongodb+srv://chohanahmad1:yDdnXCsBhW589yt7@cluster0.gmqtpc2.mongodb.net/duStake?retryWrites=true&w=majority";
-// const DB1="mongodb://localhost:27017/myDB";
 
-// mongoose.connect("mongodb://localhost:27017/myDB")
 mongoose.connect(DB,{
     useNewUrlParser :true,
     useUnifiedTopology:true,
@@ -33,7 +31,7 @@ const schema = new mongoose.Schema({
     Country :String,
     Phone: String,
     Ref_address:String,
-    verified:Boolean,
+    verified:String,
     Image:String,
 
     date  :{
