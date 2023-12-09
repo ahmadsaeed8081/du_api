@@ -67,8 +67,8 @@ const data = new collection({
 
 const getData = async () =>{
 
-    const result = await collection.find({Email : "ahmadsaeed339@gmail.com"});
-    console.log(result);
+    const result = await collection.find();
+    console.log(result[0]);
 }
 
 
@@ -136,7 +136,19 @@ app.patch("/user/:id",async (req, res)=>{
 
 })
 
+app.get("/getALLData", async (req, res) => {
 
+    const result = await collection.find();
+
+    res.send(result);
+
+})
+app.get("/getdatabyphone", async (req, res) => {
+
+    const result = await collection.find({phone : req.query.phone});
+    res.send(result);
+
+})
 
 app.get("/get", async (req, res) => {
 
@@ -150,7 +162,7 @@ app.listen(port, () => {
 });
 
 // InsertData();
-getData();
+// getData();
 
 
 
