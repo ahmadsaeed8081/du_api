@@ -70,54 +70,59 @@ const getData = async () =>{
 
 
 app.get("/getdatabyaddress", async (req, res) => {
-    console.log("its working"+req.query.userAddress);
 
-    // res.json({ userAddress: req.query.userAddress });
-    const result = await collection.find({userAddress : req.query.userAddress});
-    // console.log(result);
+    try{
+        const result = await collection.find({userAddress : req.query.userAddress});
 
-    res.send(result);
+        res.send(result);
+
+    }
+    catch(e){}
+
 
 })
 
 app.get("/getdatabymail", async (req, res) => {
-    console.log("its working"+req.query.userAddress);
+    try{
+        const result = await collection.find({Email : req.query.Email});
 
-    // res.json({ userAddress: req.query.userAddress });
-    const result = await collection.find({Email : req.query.Email});
-    // console.log(result);
+        res.send(result);
 
-    res.send(result);
+    }
+    catch(e){}
+
 
 })
 
 
 
 app.post("/register", async (req, res) => {
-    console.log("its working");
 
-  
-        const data = new collection({
-            userAddress : req.body.userAddress,
-            FName : req.body.FName,
-            LName : req.body.LName,
-            Email : req.body.Email,
-            password : req.body.password,
-            Country : req.body.Country,
-            Phone : req.body.Phone,
-            Ref_address : req.body.Ref_address,
-            verified : req.body.verified,
-            Image : req.body.Image,
-
+  try{
+    const data = new collection({
+        userAddress : req.body.userAddress,
+        FName : req.body.FName,
+        LName : req.body.LName,
+        Email : req.body.Email,
+        password : req.body.password,
+        Country : req.body.Country,
+        Phone : req.body.Phone,
+        Ref_address : req.body.Ref_address,
+        verified : req.body.verified,
+        Image : req.body.Image,
 
 
 
-        
-        })
-        const result =  await data.save();
+
+    
+    })
+    const result =  await data.save();
 
 
-    res.send("User is Registerd");
+res.send("User is Registerd");
+  }
+  catch(e){}
+
 
 })
 
@@ -125,32 +130,52 @@ app.post("/register", async (req, res) => {
 
 app.patch("/user/:id",async (req, res)=>{
 
-    const _id=req.params.id;
+    try{
+        const _id=req.params.id;
 
-    const updtaedata= await collection.findByIdAndUpdate(_id,req.body);
+        const updtaedata= await collection.findByIdAndUpdate(_id,req.body);
+    
+        res.send("its done");
+    }
+    catch(e){}
 
-    res.send("its done");
 
 })
 
 app.get("/getALLData", async (req, res) => {
+    try{
 
-    const result = await collection.find({verified : "underApproval"});
+        const result = await collection.find({userAddress : "underApproval"});
 
-    res.send(result);
+        res.send(result);
+    }
+    catch(e){}
+
 
 })
 app.get("/getdatabyphone", async (req, res) => {
 
-    const result = await collection.find({phone : req.query.phone});
-    res.send(result);
+    try{
+        const result = await collection.find({phone : req.query.phone});
+        res.send(result);
+
+    }
+    catch(e){}
+
 
 })
 
 app.get("/get", async (req, res) => {
+    try
+    {
+        const result = await collection.find({userAddress : req.query.userAddress});
+        res.send(result);
+    }
+    catch(e)
+    {
 
-    const result = await collection.find({userAddress : req.query.userAddress});
-    res.send(result);
+    }
+
 
 })
 
