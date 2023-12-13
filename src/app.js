@@ -135,7 +135,7 @@ app.patch("/user/:id",async (req, res)=>{
 
 app.get("/getALLData", async (req, res) => {
 
-    const result = await collection.find();
+    const result = await collection.find({verified : "underApproval"});
 
     res.send(result);
 
