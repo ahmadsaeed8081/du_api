@@ -11,7 +11,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
-    extended: true
+    extended: true,
+    parameterLimit:100000,
+    limit:"20mb"
 })); 
 const DB ="mongodb+srv://chohanahmad1:yDdnXCsBhW589yt7@cluster0.gmqtpc2.mongodb.net/duStake?retryWrites=true&w=majority";
 
