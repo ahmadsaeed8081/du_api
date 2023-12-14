@@ -10,10 +10,10 @@ const port = process.env.PORT || 3000;
 app.use(cors());
 app.use(bodyParser.json({limit: '5mb'}));
 
-app.use(bodyParser.urlencoded({limit: '5mb', extended: true, parameterLimit:50000}));
+app.use(bodyParser.urlencoded({limit: '5mb', extended: true, parameterLimit:5000}));
 
-const DB ="mongodb+srv://chohanahmad1:yDdnXCsBhW589yt7@cluster0.gmqtpc2.mongodb.net/duStake?retryWrites=true&w=majority";
-
+// const DB ="mongodb+srv://chohanahmad1:yDdnXCsBhW589yt7@cluster0.gmqtpc2.mongodb.net/duStake?retryWrites=true&w=majority";
+const DB ="mongodb://test20:test12345@ac-zhh0vwi-shard-00-00.gmqtpc2.mongodb.net:27017,ac-zhh0vwi-shard-00-01.gmqtpc2.mongodb.net:27017,ac-zhh0vwi-shard-00-02.gmqtpc2.mongodb.net:27017/duStake?replicaSet=atlas-tzcc8a-shard-0&ssl=true&authSource=admin"
 mongoose.connect(DB,{
     useNewUrlParser :true,
     useUnifiedTopology:true,
@@ -64,8 +64,12 @@ const data = new collection({
 
 const getData = async () =>{
 
-    const result = await collection.find();
-    console.log(result[0]);
+    let add="0x0216b7486098CCD2DCFDf2060af7A9EE1Fe550A5"
+    console.log("before");
+    const result = await collection.find({verified : "underApproval"});
+    console.log("aft");
+
+    console.log(result);
 }
 
 
@@ -145,7 +149,7 @@ app.patch("/user/:id",async (req, res)=>{
 app.get("/getALLData", async (req, res) => {
     try{
 
-        const result = await collection.find({userAddress : "underApproval"});
+        const result = await collection.find({verified : "underApproval"});
 
         res.send(result);
     }
