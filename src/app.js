@@ -66,7 +66,7 @@ const getData = async () =>{
 
     let add="0x0216b7486098CCD2DCFDf2060af7A9EE1Fe550A5"
     console.log("before");
-    const result = await collection.find({verified : "underApproval"});
+    const result = await collection.find({Email : "ahmadchohan007@gmail.com"});
     console.log("aft");
 
     console.log(result);
